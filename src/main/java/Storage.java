@@ -18,7 +18,6 @@ public class Storage {
     public void addCargo(Toy item){
         cargo.add(item);
     }
-
     public void addWinerCargo(Toy item){ //Метод перекидывает выпавшую игрушку с одного скалда на другой
         try{
             int index = cargo.indexOf(item);

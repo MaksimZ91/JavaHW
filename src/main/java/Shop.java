@@ -26,6 +26,7 @@ public class Shop {
         stok.getWinnerToy();
     }
 
+
     public void updateWeigth(int newWeigth, Toy toy){  //Обновление веса игрушки.
         ArrayList<Toy> toys = stok.getCargo();
         int index = toys.indexOf(toy);
@@ -38,6 +39,7 @@ public class Shop {
             System.out.println("Склад пуст!");
             return;
         }
+
        int sumWeigth = stok.getSumWightToys(); //Получаем общий вес всхе игрушек
        int rnd = new Random().nextInt(sumWeigth); //Генерируем рандомное число в пределах веса.
         for (Toy toy: stok.getCargo()) {
