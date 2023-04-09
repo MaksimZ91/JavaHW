@@ -7,29 +7,30 @@ public class main {
         int maxCount = 10;
         int minCount = 1;
 
-        System.out.println("Создаем игрушки заполняем склад --> ");
+        System.out.println("Create toys --> ");
         for (int i = 0; i < 10; i++){
             String toyType = getToyType();
             Toy toy = new Toy(toyType, rnd.nextInt(maxCount-minCount)+minCount, getWight(toyType));
             myShop.addToy(toy);
         }
-        System.out.println("Игрушки на основном складе: ");
+
+        System.out.println("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ: ");
         myShop.getStok().forEach(e -> System.out.println(e.toString()));
-        System.out.println("Меняем вес у третий игрушки: ");
+        System.out.println("пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: ");
         myShop.updateWeigth(20, myShop.getStok().get(2));
         System.out.println(myShop.getStok().get(2).toString());
-        System.out.println("Разыгрываем 3 игрушки");
+        System.out.println("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ 3 пїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
         for (int j = 0; j < 3; j++) {
             myShop.game();
         }
-        System.out.println("Игрушки на основном складе после розыграша: ");
+        System.out.println("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: ");
         myShop.getStok().forEach(e -> System.out.println(e.toString()));
-        System.out.println("Игрушки на складе для выдачи: ");
+        System.out.println("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ: ");
         myShop.getWinerStok().forEach(e -> System.out.println(e.toString()));
-        System.out.println("Выдаем две игрушки: ");
+        System.out.println("пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: ");
         myShop.getWinnerToy();
         myShop.getWinnerToy();
-        System.out.println("Игрушки на складе для выдачи после выдачи двух игрушек: ");
+        System.out.println("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: ");
         myShop.getWinerStok().forEach(e -> System.out.println(e.toString()));
         Repository.read();
     }
