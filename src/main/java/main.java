@@ -7,29 +7,30 @@ public class main {
         int maxCount = 10;
         int minCount = 1;
 
+        System.out.println("Создаем игрушки заполняем склад --> ");
         for (int i = 0; i < 10; i++){
             String toyType = getToyType();
             Toy toy = new Toy(toyType, rnd.nextInt(maxCount-minCount)+minCount, getWight(toyType));
             myShop.addToy(toy);
         }
-
-
-
+        System.out.println("Игрушки на основном складе: ");
         myShop.getStok().forEach(e -> System.out.println(e.toString()));
-        myShop.updateWeigth(1, myShop.getStok().get(2));
-        System.out.println("---------------------");
-
-        for (int j = 0; j < 10; j++) {
+        System.out.println("Меняем вес у третий игрушки: ");
+        myShop.updateWeigth(20, myShop.getStok().get(2));
+        System.out.println(myShop.getStok().get(2).toString());
+        System.out.println("Разыгрываем 3 игрушки");
+        for (int j = 0; j < 3; j++) {
             myShop.game();
         }
+        System.out.println("Игрушки на основном складе после розыграша: ");
         myShop.getStok().forEach(e -> System.out.println(e.toString()));
-        System.out.println("---------------------");
+        System.out.println("Игрушки на складе для выдачи: ");
         myShop.getWinerStok().forEach(e -> System.out.println(e.toString()));
-
+        System.out.println("Выдаем две игрушки: ");
         myShop.getWinnerToy();
         myShop.getWinnerToy();
+        System.out.println("Игрушки на складе для выдачи после выдачи двух игрушек: ");
         myShop.getWinerStok().forEach(e -> System.out.println(e.toString()));
-
         Repository.read();
     }
 

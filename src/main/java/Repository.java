@@ -6,9 +6,10 @@ import java.util.Scanner;
 public class Repository {
 
     public static void write(String data){
+        FileWriter writer = null;
         try {
-            FileWriter writer = new FileWriter("toys.txt");
-            writer.write(data);
+            writer = new FileWriter("toys.txt", true);
+            writer.append(data);
             writer.flush();
         }catch (IOException ex){
             System.out.println(ex.getMessage());
