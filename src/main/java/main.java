@@ -16,21 +16,21 @@ public class main {
 
         System.out.println("Игрушки на основном складе: ");
         myShop.getStok().forEach(e -> System.out.println(e.toString()));
-        System.out.println("������ ��� � ������ �������: ");
+        System.out.println("Меняем вес у 3-тий игрушки: ");
         myShop.updateWeigth(20, myShop.getStok().get(2));
         System.out.println(myShop.getStok().get(2).toString());
-        System.out.println("����������� 3 �������");
+        System.out.println("Разыгрываем три игрушки");
         for (int j = 0; j < 3; j++) {
             myShop.game();
         }
-        System.out.println("������� �� �������� ������ ����� ���������: ");
+        System.out.println("Игрушки на основном складе после розыгрыша: ");
         myShop.getStok().forEach(e -> System.out.println(e.toString()));
-        System.out.println("������� �� ������ ��� ������: ");
+        System.out.println("Игрушки на складе для выдачи: ");
         myShop.getWinerStok().forEach(e -> System.out.println(e.toString()));
-        System.out.println("������ ��� �������: ");
+        System.out.println("Выдаем две игрушки: ");
         myShop.getWinnerToy();
         myShop.getWinnerToy();
-        System.out.println("������� �� ������ ��� ������ ����� ������ ���� �������: ");
+        System.out.println("Игрушки на складе для выдачи после выдачи игрушкек: ");
         myShop.getWinerStok().forEach(e -> System.out.println(e.toString()));
         Repository.read();
     }
