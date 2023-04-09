@@ -18,38 +18,38 @@ public class Storage {
     public void addCargo(Toy item){
         cargo.add(item);
     }
-    public void addWinerCargo(Toy item){ //Метод перекидывает выпавшую игрушку с одного скалда на другой
+    public void addWinerCargo(Toy item){ //РњРµС‚РѕРґ РїРµСЂРµРєРёРґС‹РІР°РµС‚ РІС‹РїР°РІС€СѓСЋ РёРіСЂСѓС€РєСѓ СЃ РѕРґРЅРѕРіРѕ СЃРєР°Р»РґР° РЅР° РґСЂСѓРіРѕР№
         try{
             int index = cargo.indexOf(item);
-            Toy toy = cargo.get(index);  //Находим выпавшую игрущку на общем складе
-            if (winerCargo.contains(item)){ //проверяем если на склладе для выдачи эта игрушка
+            Toy toy = cargo.get(index);  //РќР°С…РѕРґРёРј РІС‹РїР°РІС€СѓСЋ РёРіСЂСѓС‰РєСѓ РЅР° РѕР±С‰РµРј СЃРєР»Р°РґРµ
+            if (winerCargo.contains(item)){ //РїСЂРѕРІРµСЂСЏРµРј РµСЃР»Рё РЅР° СЃРєР»Р»Р°РґРµ РґР»СЏ РІС‹РґР°С‡Рё СЌС‚Р° РёРіСЂСѓС€РєР°
                 int winnerIndex = winerCargo.indexOf(item);
-                Toy winnerToy = winerCargo.get(winnerIndex); //находим ее
-                winnerToy.setCount(winnerToy.getCount()+1); //увеличеваем кол-во игрушек на 1
-                toy.setCount(toy.getCount()-1); //уменьшаем кол-во игрушек на 1 на общем складе
-                if(toy.getCount() <= 0) //если мы забрали последнию игрушку с обшего склада удаляем ее с общего склада
+                Toy winnerToy = winerCargo.get(winnerIndex); //РЅР°С…РѕРґРёРј РµРµ
+                winnerToy.setCount(winnerToy.getCount()+1); //СѓРІРµР»РёС‡РµРІР°РµРј РєРѕР»-РІРѕ РёРіСЂСѓС€РµРє РЅР° 1
+                toy.setCount(toy.getCount()-1); //СѓРјРµРЅСЊС€Р°РµРј РєРѕР»-РІРѕ РёРіСЂСѓС€РµРє РЅР° 1 РЅР° РѕР±С‰РµРј СЃРєР»Р°РґРµ
+                if(toy.getCount() <= 0) //РµСЃР»Рё РјС‹ Р·Р°Р±СЂР°Р»Рё РїРѕСЃР»РµРґРЅРёСЋ РёРіСЂСѓС€РєСѓ СЃ РѕР±С€РµРіРѕ СЃРєР»Р°РґР° СѓРґР°Р»СЏРµРј РµРµ СЃ РѕР±С‰РµРіРѕ СЃРєР»Р°РґР°
                     cargo.remove(index);
             } else {
-                Toy copyItem = item.clone(); //если на складе для выдачи нет выпавшей игрушки создаем ее копию.
-                winerCargo.add(copyItem); //добавляем на склад для выдачи
-                toy.setCount(toy.getCount()-1);//уменьшаем кол-во игрушек на 1 на общем складе
-                if(toy.getCount() <= 0) //если мы забрали последнию игрушку с обшего склада удаляем ее с общего склада
+                Toy copyItem = item.clone(); //РµСЃР»Рё РЅР° СЃРєР»Р°РґРµ РґР»СЏ РІС‹РґР°С‡Рё РЅРµС‚ РІС‹РїР°РІС€РµР№ РёРіСЂСѓС€РєРё СЃРѕР·РґР°РµРј РµРµ РєРѕРїРёСЋ.
+                winerCargo.add(copyItem); //РґРѕР±Р°РІР»СЏРµРј РЅР° СЃРєР»Р°Рґ РґР»СЏ РІС‹РґР°С‡Рё
+                toy.setCount(toy.getCount()-1);//СѓРјРµРЅСЊС€Р°РµРј РєРѕР»-РІРѕ РёРіСЂСѓС€РµРє РЅР° 1 РЅР° РѕР±С‰РµРј СЃРєР»Р°РґРµ
+                if(toy.getCount() <= 0) //РµСЃР»Рё РјС‹ Р·Р°Р±СЂР°Р»Рё РїРѕСЃР»РµРґРЅРёСЋ РёРіСЂСѓС€РєСѓ СЃ РѕР±С€РµРіРѕ СЃРєР»Р°РґР° СѓРґР°Р»СЏРµРј РµРµ СЃ РѕР±С‰РµРіРѕ СЃРєР»Р°РґР°
                     cargo.remove(index);
                 int winnerIndex = winerCargo.indexOf(copyItem);
-                winerCargo.get(winnerIndex).setCount(1); //устанавливаем в в копии количество равное 1 штуки.
+                winerCargo.get(winnerIndex).setCount(1); //СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј РІ РІ РєРѕРїРёРё РєРѕР»РёС‡РµСЃС‚РІРѕ СЂР°РІРЅРѕРµ 1 С€С‚СѓРєРё.
             }
         }catch (CloneNotSupportedException ex){
             ex.printStackTrace();
         }
     }
 
-    public void getWinnerToy(){  // метод подучение игршки с выигрышного склада
+    public void getWinnerToy(){  // РјРµС‚РѕРґ РїРѕРґСѓС‡РµРЅРёРµ РёРіСЂС€РєРё СЃ РІС‹РёРіСЂС‹С€РЅРѕРіРѕ СЃРєР»Р°РґР°
         ArrayList<Toy> toys = getWinerCargo();
         if (getWinerCargo().isEmpty()){
-            System.out.println("Склад пуст!");
+            System.out.println("РЎРєР»Р°Рґ РїСѓСЃС‚!");
             return;
         }
-        Toy toy = toys.get(0); //всегда выдаем игрушку 1 позициию
+        Toy toy = toys.get(0); //РІСЃРµРіРґР° РІС‹РґР°РµРј РёРіСЂСѓС€РєСѓ 1 РїРѕР·РёС†РёРёСЋ
         String strToys = new StringBuilder()
                 .append("id: ")
                 .append(toy.getId())
@@ -57,21 +57,21 @@ public class Storage {
                 .append(toy.getDescription())
                 .append("\n")
                 .toString();
-        if (toy.getCount() == 1){ //если отдали последнию удаяем игршку со склада.
+        if (toy.getCount() == 1){ //РµСЃР»Рё РѕС‚РґР°Р»Рё РїРѕСЃР»РµРґРЅРёСЋ СѓРґР°СЏРµРј РёРіСЂС€РєСѓ СЃРѕ СЃРєР»Р°РґР°.
             toys.remove(toy);
-            System.out.printf("C пизового скалда выдана последняя игрушка %s c id %s \n", toy.getDescription(), toy.getId());
-            Repository.write(strToys); //Записываем в файл выданную игрушку
+            System.out.printf("C РїРёР·РѕРІРѕРіРѕ СЃРєР°Р»РґР° РІС‹РґР°РЅР° РїРѕСЃР»РµРґРЅСЏСЏ РёРіСЂСѓС€РєР° %s c id %s \n", toy.getDescription(), toy.getId());
+            Repository.write(strToys); //Р—Р°РїРёСЃС‹РІР°РµРј РІ С„Р°Р№Р» РІС‹РґР°РЅРЅСѓСЋ РёРіСЂСѓС€РєСѓ
             return;
         }
-        toy.setCount(toy.getCount()-1); //иначе уменьшаем кол-во на 1.
+        toy.setCount(toy.getCount()-1); //РёРЅР°С‡Рµ СѓРјРµРЅСЊС€Р°РµРј РєРѕР»-РІРѕ РЅР° 1.
         Repository.write(strToys);
-        System.out.printf("Выдана с призового склада игрушка %s c id %s, игрушек этого типа осталось %d \n",
+        System.out.printf("Р’С‹РґР°РЅР° СЃ РїСЂРёР·РѕРІРѕРіРѕ СЃРєР»Р°РґР° РёРіСЂСѓС€РєР° %s c id %s, РёРіСЂСѓС€РµРє СЌС‚РѕРіРѕ С‚РёРїР° РѕСЃС‚Р°Р»РѕСЃСЊ %d \n",
                 toy.getDescription(),
                 toy.getId(),
                 toy.getCount());
     }
     
-    public int getSumWightToys(){ //вспомогательный метод для розогрыша игрушек, суммирует общий вес всех игрушек.
+    public int getSumWightToys(){ //РІСЃРїРѕРјРѕРіР°С‚РµР»СЊРЅС‹Р№ РјРµС‚РѕРґ РґР»СЏ СЂРѕР·РѕРіСЂС‹С€Р° РёРіСЂСѓС€РµРє, СЃСѓРјРјРёСЂСѓРµС‚ РѕР±С‰РёР№ РІРµСЃ РІСЃРµС… РёРіСЂСѓС€РµРє.
         int sumWight = 0;
         for (Toy toy: cargo ) {
             sumWight += toy.getWeight();

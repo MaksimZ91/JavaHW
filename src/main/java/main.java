@@ -14,7 +14,7 @@ public class main {
             myShop.addToy(toy);
         }
 
-        System.out.println("������� �� �������� ������: ");
+        System.out.println("Игрушки на основном складе: ");
         myShop.getStok().forEach(e -> System.out.println(e.toString()));
         System.out.println("������ ��� � ������ �������: ");
         myShop.updateWeigth(20, myShop.getStok().get(2));
