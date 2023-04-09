@@ -22,28 +22,28 @@ public class Shop {
         return stok.getWinerCargo();
     }
 
-    public void getWinnerToy(){ //Метод выдачи игрушки со склада
+    public void getWinnerToy(){ //РњРµС‚РѕРґ РІС‹РґР°С‡Рё РёРіСЂСѓС€РєРё СЃРѕ СЃРєР»Р°РґР°
         stok.getWinnerToy();
     }
 
-    public void updateWeigth(int newWeigth, Toy toy){  //Обновление веса игрушки.
+    public void updateWeigth(int newWeigth, Toy toy){  //РћР±РЅРѕРІР»РµРЅРёРµ РІРµСЃР° РёРіСЂСѓС€РєРё.
         ArrayList<Toy> toys = stok.getCargo();
         int index = toys.indexOf(toy);
         Toy currentToy = toys.get(index);
         currentToy.setWeight(newWeigth);
     }
 
-    public void game(){    //Метод розыграша игрушек
-        if (stok.getCargo().isEmpty()){ //Если склад не пуст.
-            System.out.println("Склад пуст!");
+    public void game(){    //РњРµС‚РѕРґ СЂРѕР·С‹РіСЂР°С€Р° РёРіСЂСѓС€РµРє
+        if (stok.getCargo().isEmpty()){ //Р•СЃР»Рё СЃРєР»Р°Рґ РЅРµ РїСѓСЃС‚.
+            System.out.println("РЎРєР»Р°Рґ РїСѓСЃС‚!");
             return;
         }
-       int sumWeigth = stok.getSumWightToys(); //Получаем общий вес всхе игрушек
-       int rnd = new Random().nextInt(sumWeigth); //Генерируем рандомное число в пределах веса.
+       int sumWeigth = stok.getSumWightToys(); //РџРѕР»СѓС‡Р°РµРј РѕР±С‰РёР№ РІРµСЃ РІСЃС…Рµ РёРіСЂСѓС€РµРє
+       int rnd = new Random().nextInt(sumWeigth); //Р“РµРЅРµСЂРёСЂСѓРµРј СЂР°РЅРґРѕРјРЅРѕРµ С‡РёСЃР»Рѕ РІ РїСЂРµРґРµР»Р°С… РІРµСЃР°.
         for (Toy toy: stok.getCargo()) {
-            rnd = rnd  - toy.getWeight(); //Отнимаем от сгенерированого числа вес игршки, пока число не станет равно 0 или меньше 0
+            rnd = rnd  - toy.getWeight(); //РћС‚РЅРёРјР°РµРј РѕС‚ СЃРіРµРЅРµСЂРёСЂРѕРІР°РЅРѕРіРѕ С‡РёСЃР»Р° РІРµСЃ РёРіСЂС€РєРё, РїРѕРєР° С‡РёСЃР»Рѕ РЅРµ СЃС‚Р°РЅРµС‚ СЂР°РІРЅРѕ 0 РёР»Рё РјРµРЅСЊС€Рµ 0
             if (rnd <= 0 ){
-               stok.addWinerCargo(toy); //Игрушка на которой сгенерированое число упало до 0 или меньше считаеться выпавшей
+               stok.addWinerCargo(toy); //РРіСЂСѓС€РєР° РЅР° РєРѕС‚РѕСЂРѕР№ СЃРіРµРЅРµСЂРёСЂРѕРІР°РЅРѕРµ С‡РёСЃР»Рѕ СѓРїР°Р»Рѕ РґРѕ 0 РёР»Рё РјРµРЅСЊС€Рµ СЃС‡РёС‚Р°РµС‚СЊСЃСЏ РІС‹РїР°РІС€РµР№
                return;
             }
         }
